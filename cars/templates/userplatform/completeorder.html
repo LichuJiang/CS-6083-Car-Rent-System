@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>order</title>
+</head>
+<body>
+    <h1>You got the car!</h1>
+    <h1>Please input these information to complete order!</h1>
+    <form method="get" action="">
+        {% csrf_token %}
+        <p>PICK_OFF_ID:<input type="number" name="pick_off_id"></p>
+        <p>PICKDATE:<input type="date" name="pick_date"></p>
+        <p>SODOM:<input type="number" name="sodom"></p>
+        <button type="submit">order</button>
+    </form>
+    <h1>Your order:</h1>
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>VEHI_MODEL</th>
+                <th>CLASS_ID</th>
+                <th>OFFI_ID</th>
+                <th>PICK_OFF_ID</th>
+                <th>PICKDATE</th>
+                <th>SODOM</th>
+                <th>DAILY_RATE</th>
+                <th>OVER_FEE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{vehicle.vehi_model}}</td>
+                <td>{{vehicle.class_field.class_name}}</td>
+                <td>{{vehicle.offi.offi_city}}</td>
+                <td>{{pick_of_id}}</td>
+                <td>{{pick_date}}</td>
+                <td>{{sodom}}</td>
+                <td>{{vehicle_class.class_dailyrate}}</td>
+                <td>{{vehicle_class.class_over_m_fee}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Your expect expenses is {{expenses}}</h2>
+</body>
+</html>

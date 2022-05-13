@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>login</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'bootstrap/css/signin.css' %}" rel="stylesheet">
+ 
+    <link href="{% static 'bootstrap/css/welcome.css' %}" rel="stylesheet">
+ 
+</head>
+<body>
+    <div class="onepage">
+        <div class="onepage-bg" id="onepagebg">
+            <div class="container">
+                <div class="row">
+                    <div class="title-text">
+                        <div class="col-md-12 headfrontsize">
+                            <h2 class="form-signin-heading" ><center>Please Login</center></h2>
+                            <div class="container">
+                            <form class="form-signin" action="" method="post">
+                                {% csrf_token %}
+                                <label for="inputEmail" class="sr-only">Email address</label>
+                                <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">login</button>
+                            </form>
+                            <a href="/cars/register">not a member? register !</a>
+                            <br>
+                            <br>
+                            <a href="/admin">I am admin.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>email:<input type="email" name="email"></p>
+        <p>password:<input type="password" name="password"></p>
+        <input type="submit" value="login">
+    </form>
+    <a href="/cars/register">not a member? register!</a>
+</body>
+</html> {% endcomment %}

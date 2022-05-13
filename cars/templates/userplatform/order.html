@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>order</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'bootstrap/css/signin.css' %}" rel="stylesheet">
+ 
+    <link href="{% static 'bootstrap/css/search.css' %}" rel="stylesheet">
+ 
+</head>
+<body>
+    <div class="onepage">
+        <div class="onepage-bg" id="onepagebg">
+            <div class="container">
+                <div class="row">
+                    <div class="title-text">
+                        <div class="col-md-12 headfrontsize">
+                            <h3>Please input these information to complete order!</h3>
+
+    <form class="form-signin" action="" method="post">
+        {% csrf_token %}
+        <label for="vehicle_licence" class="sr-only">Vehicle_licence</label>
+        <input type="text" name="vehicle_licence" class="form-control" placeholder="vehicle_licence" required autofocus>
+
+        <label for="serv_numb" class="sr-only">Serv_Numb</label>
+        <input type="number" name="serv_numb" class="form-control" placeholder="serv_numb" required autofocus>
+
+        <label for="pick_date" class="sr-only">Pick_Date</label>
+        <input type="date" name="pick_date" class="form-control" placeholder="pick_date" required autofocus>
+
+        <label for="sodom" class="sr-only">Sodom</label>
+        <input type="number" name="sodom" class="form-control" placeholder="sodom" required autofocus>
+
+        <label for="Customer_ID" class="sr-only">Customer_ID</label>
+        <input type="number" name="cust" class="form-control" placeholder="Customer_ID" required autofocus>
+        <button class="btn btn-primary btn-block" type="submit">order</button>
+    </form>
+    <h3>Your order:</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>SERV_NUMBER</th>
+                <th>PICK_OFFICIAL</th>
+                <th>PICKDATE</th>
+                <th>SODOM</th>
+                <th>VEHICLE_LICENCE</th>
+                <th>DAILY_RATE</th>
+                <th>OVER_FEE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{orderlist.serv_numb}}</td>
+                <td>{{orderlist.pick_offi.offi_city}}</td>
+                <td>{{orderlist.pick_date}}</td>
+                <td>{{orderlist.sodom}}</td>
+                <td>{{orderlist.vehi_lice.vehi_lice}}</td>
+                <td>{{daily_rate}}</td>
+                <td>{{over_fee}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-default" href="/cars/userplatform" data-toggle="tab" onclick="">back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>order</title>
+</head>
+<body>
+    <h1>Please input these information to complete order!</h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Vehicle_licence:<input type="text" name="vehicle_licence"></p>
+        <p>Serv_Numb:<input type="number" name="serv_numb"></p>
+        <p>Pick_Date:<input type="date" name="pick_date"></p>
+        <p>Sodom:<input type="number" name="sodom"></p>
+        <p>Customer_ID:<input type="number" name="cust"></p>
+        <input type="submit" value="order">
+    </form>
+    <h1>Your order:</h1>
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>SERV_NUMBER</th>
+                <th>PICK_OFFICIAL</th>
+                <th>PICKDATE</th>
+                <th>SODOM</th>
+                <th>VEHICLE LICENCE</th>
+                <th>DAILY_RATE</th>
+                <th>OVER_FEE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{orderlist.serv_numb}}</td>
+                <td>{{orderlist.pick_offi.offi_city}}</td>
+                <td>{{orderlist.pick_date}}</td>
+                <td>{{orderlist.sodom}}</td>
+                <td>{{orderlist.vehi_lice.vehi_lice}}</td>
+                <td>{{daily_rate}}</td>
+                <td>{{over_fee}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/cars/userplatform">back</a>
+</body>
+</html> {% endcomment %}

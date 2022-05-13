@@ -1,0 +1,9 @@
+{% if lxy_class_list %}
+    <ul>
+        {%for i in lxy_class_list%}
+            <li>{{i.class_id}}  {{i.class_name}}  {{i.class_dailyrate}}  {{i.class_over_m_fee}}</li>
+        {% endfor %}
+    </ul>
+{%else%}
+    <p>No cars are available.</p>
+{%endif%}

@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>myorder</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'bootstrap/css/signin.css' %}" rel="stylesheet">
+ 
+    <link href="{% static 'bootstrap/css/myorder.css' %}" rel="stylesheet">
+ 
+</head>
+<body>
+    <div class="onepage">
+        <div class="onepage-bg" id="onepagebg">
+            <div class="container">
+                <div class="row">
+                    <div class="title-text">
+                        <div class="col-md-12 headfrontsize">
+                            <br><br><br><br><br>
+                            <h3>Your order:</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>SERV_NUMBER</th>
+                <th>PICK_OFFICIAL</th>
+                <th>PICKDATE</th>
+                <th>SODOM</th>
+                <th>VEHICLE LICENCE</th>
+                <th>DAILY_RATE</th>
+                <th>OVER_FEE</th>
+                <th>PAYMENT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{orderlist.serv_numb}}</td>
+                <td>{{orderlist.pick_offi.offi_city}}</td>
+                <td>{{orderlist.pick_date}}</td>
+                <td>{{orderlist.sodom}}</td>
+                <td>{{orderlist.vehi_lice.vehi_lice}}</td>
+                <td>{{daily_rate}}</td>
+                <td>{{over_fee}}</td>
+                <td>{{orderlist.payment}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-default" href="/cars/userplatform" data-toggle="tab" onclick="">back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
+
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>myorder</title>
+</head>
+<body>
+    <h1>Your order:</h1>
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>SERV_NUMBER</th>
+                <th>PICK_OFFICIAL</th>
+                <th>PICKDATE</th>
+                <th>SODOM</th>
+                <th>VEHICLE LICENCE</th>
+                <th>DAILY_RATE</th>
+                <th>OVER_FEE</th>
+                <th>PAYMENT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{orderlist.serv_numb}}</td>
+                <td>{{orderlist.pick_offi.offi_city}}</td>
+                <td>{{orderlist.pick_date}}</td>
+                <td>{{orderlist.sodom}}</td>
+                <td>{{orderlist.vehi_lice.vehi_lice}}</td>
+                <td>{{daily_rate}}</td>
+                <td>{{over_fee}}</td>
+                <td>{{orderlist.payment}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/cars/userplatform">back</a>
+</body>
+</html> {% endcomment %}

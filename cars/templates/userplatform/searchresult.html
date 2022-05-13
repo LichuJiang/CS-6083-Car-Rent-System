@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>search</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'bootstrap/css/signin.css' %}" rel="stylesheet">
+    
+    <link href="{% static 'bootstrap/css/search.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="onepage">
+        <div class="onepage-bg" id="onepagebg">
+            <div class="container">
+                <div class="row">
+                    <div class="title-text">
+                        <div class="col-md-12 headfrontsize">
+                            <a class="btn btn-default" href="/cars/userplatform" data-toggle="tab" onclick="">back</a>
+    {% comment %} <h3 class="form-signin-heading">Available Vehicle List:</h3> {% endcomment %}
+    <form class="form-signin" method="get" action="">
+        <h1>Available Vehicle List</h1>
+        <br><br><br><br>
+        {% csrf_token %}
+        {% comment %} <h4>vehi_model:</h4> {% endcomment %}
+        <label for="search" class="sr-only">search</label>
+        <input type="search" name="vehi_model" class="form-control" placeholder="vehicle_model" required autofocus>
+        <button class="btn btn-primary btn-block" type="submit">search</button>
+    </form>
+    <table class="table">
+        {% comment %} <caption>vehicle list</caption> {% endcomment %}
+        <thead>
+          <tr>
+            <th>VEHI_LICE</th>
+            <th>VEHI_MODEL</th>
+            <th>VEHI_YEAR</th>
+            <th>CLASS_ID</th>
+            <th>OFFI_ID</th>
+          </tr>
+        </thead>
+        <tbody>
+            {%for vehicle in vehicle_list%}
+            <tr>
+                <td>{{vehicle.vehi_lice}}</td>
+                <td>{{vehicle.vehi_model}}</td>
+                <td>{{vehicle.vehi_year}}</td>
+                <td>{{vehicle.class_field.class_name}}</td>
+                <td>{{vehicle.offi.offi_city}}</td>
+                {% comment %} <td><a href="/cars/userplatform/order/?id={{vehicle.pk}}">order</a></td> {% endcomment %}
+            </tr>
+            {%endfor%}
+        </tbody>
+      </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>searchresult</title>
+</head>
+<body>
+    <a href="/cars/userplatform">back</a>
+    <h1>Available Vehicle List:</h1>
+    <form method="get" action="">
+        {% csrf_token %}
+        <h1>vehi_model:</h1>
+        <input type="search" name="vehi_model">
+        <button type="submit">search</button>
+    </form>
+    <h1>vehicle list</h1>
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>VEHI_LICE</th>
+                <th>VEHI_MODEL</th>
+                <th>VEHI_YEAR</th>
+                <th>CLASS_ID</th>
+                <th>OFFI_ID</th>
+                {% comment %} <th>OPERATION</th> {% endcomment %}
+            {% comment %} </tr>
+        </thead>
+        <tbody>
+            {%for vehicle in vehicle_list%}
+            <tr>
+                <td>{{vehicle.vehi_lice}}</td>
+                <td>{{vehicle.vehi_model}}</td>
+                <td>{{vehicle.vehi_year}}</td>
+                <td>{{vehicle.class_field.class_name}}</td>
+                <td>{{vehicle.offi.offi_city}}</td>
+                {% comment %} <td><a href="/cars/userplatform/order/?id={{vehicle.pk}}">order</a></td> {% endcomment %}
+            {% comment %} </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</body>
+</html> {% endcomment %} 

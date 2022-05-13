@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>userplatform</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    
+    <link href="{% static 'bootstrap/css/signin.css' %}" rel="stylesheet">
+ 
+    <link href="{% static 'bootstrap/css/welcome.css' %}" rel="stylesheet">
+</head>
+<body>
+    <body>
+
+        <div class="onepage">
+            <div class="onepage-bg" id="onepagebg">
+                <div class="container">
+                    <div class="row">
+                        <div class="title-text">
+                            <div class="col-md-12 headfrontsize">
+                                <h2 class="form-signin-heading" >User Menu</h2>
+
+                                <ul id="myTab" class="nav nav-tabs">
+                                    <li>
+                                        <a class="btn btn-default" href="/cars/userplatform/search" data-toggle="tab" onclick="">search available vehicle</a>
+                                        <div class="tab_border_bottom"></div>
+                                    </li>
+                                    <li>
+                                        <a class="btn btn-default" href="/cars/userplatform/order" data-toggle="tab" onclick="">order</a>
+                                        <div class="tab_border_bottom"></div>
+                                    </li>
+                                    <li>
+                                        <a class="btn btn-default" href="/cars/userplatform/myorder/" data-toggle="tab" onclick="">my order</a>
+                                        <div class="tab_border_bottom"></div>
+                                    </li>
+                                    <li>
+                                        <a class="btn btn-default" href="/cars/userplatform/checkout/" data-toggle="tab" onclick="">checkout</a>
+                                        <div class="tab_border_bottom"></div>
+                                    </li>
+                                    <li>
+                                        <a class="btn btn-default" href="/cars/userplatform/payment/" data-toggle="tab" onclick="">pay</a>
+                                        <div class="tab_border_bottom"></div>
+                                    </li>
+                                    <li>
+                                        <a class="btn btn-default" href="/cars/login" data-toggle="tab" onclick="">logout</a>
+                                        <div class="tab_border_bottom"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
+
+   
+
+</body>
+</html>
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>userplatform</title>
+</head>
+<body>
+    <a href="/cars/userplatform/search">search available vehicle</a><br><br><br>
+    <a href="/cars/userplatform/order">order</a><br><br><br>
+    <a href="/cars/userplatform/myorder/">my order</a><br><br><br>
+    <a href="/cars/userplatform/checkout/">checkout</a><br><br><br>
+    <a href="/cars/userplatform/payment/">pay</a><br><br><br>
+    <a href="/cars/login">logout</a><br><br><br>
+</body>
+</html> {% endcomment %}

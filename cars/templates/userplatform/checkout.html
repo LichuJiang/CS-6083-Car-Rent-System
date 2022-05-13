@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>search</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'bootstrap/css/signin.css' %}" rel="stylesheet">
+
+    <link href="{% static 'bootstrap/css/checkout.css' %}" rel="stylesheet">
+ 
+</head>
+<body>
+    <div class="onepage">
+        <div class="onepage-bg" id="onepagebg">
+            <div class="container">
+                <div class="row">
+                    <div class="title-text">
+                        <div class="col-md-12 headfrontsize">
+                            <form class="form-signin" action="" method="post">
+                                {% csrf_token %}
+                        
+                                <label for="drop_offi" class="sr-only">Drop_Official</label>
+                                <input type="number" name="drop_offi" class="form-control" placeholder="drop_official" required autofocus>
+                        
+                                <label for="drop_date" class="sr-only">Drop_Date</label>
+                                <input type="date" name="drop_date" class="form-control" placeholder="drop_date" required autofocus>
+                        
+                                <label for="eodom" class="sr-only">Eodom</label>
+                                <input type="number" name="eodom" class="form-control" placeholder="eodom" required autofocus>
+                                
+                                <button class="btn btn-primary btn-block" type="submit">checkout</button>
+                            </form>
+                            <h3>Your order:</h3>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>SERV_NUMBER</th>
+                                        <th>PICK_OFFICIAL</th>
+                                        <th>DROP_OFFICIAL</th>
+                                        <th>PICKDATE</th>
+                                        <th>DROPDATE</th>
+                                        <th>SODOM</th>
+                                        <th>EODOM</th>
+                                        <th>VEHICLE LICENCE</th>
+                                        <th>DAILY_RATE</th>
+                                        <th>OVER_FEE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{orderlist.serv_numb}}</td>
+                                        <td>{{orderlist.pick_offi.offi_city}}</td>
+                                        <td>{{orderlist.drop_offi.offi_city}}</td>
+                                        <td>{{orderlist.pick_date}}</td>
+                                        <td>{{orderlist.drop_date}}</td>
+                                        <td>{{orderlist.sodom}}</td>
+                                        <td>{{orderlist.eodom}}</td>
+                                        <td>{{orderlist.vehi_lice.vehi_lice}}</td>
+                                        <td>{{daily_rate}}</td>
+                                        <td>{{over_fee}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>TOTAL EXPENSES</th>
+                                        <th>BASECOST</th>
+                                        <th>OVERFEE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{orderlist.payment}}</td>
+                                        <td>{{base}}</td>
+                                        <td>{{overfee}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a class="btn btn-default" href="/cars/userplatform" data-toggle="tab" onclick="">back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkout</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Drop_Official:<input type="number" name="drop_offi"></p>
+        <p>Drop_Date:<input type="date" name="drop_date"></p>
+        <p>Eodom:<input type="number" name="eodom"></p>
+        <input type="submit" value="checkout">
+    </form>
+    <h1>Your order:</h1>
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>SERV_NUMBER</th>
+                <th>PICK_OFFICIAL</th>
+                <th>DROP_OFFICIAL</th>
+                <th>PICKDATE</th>
+                <th>DROPDATE</th>
+                <th>SODOM</th>
+                <th>EODOM</th>
+                <th>VEHICLE LICENCE</th>
+                <th>DAILY_RATE</th>
+                <th>OVER_FEE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{orderlist.serv_numb}}</td>
+                <td>{{orderlist.pick_offi.offi_city}}</td>
+                <td>{{orderlist.drop_offi.offi_city}}</td>
+                <td>{{orderlist.pick_date}}</td>
+                <td>{{orderlist.drop_date}}</td>
+                <td>{{orderlist.sodom}}</td>
+                <td>{{orderlist.eodom}}</td>
+                <td>{{orderlist.vehi_lice.vehi_lice}}</td>
+                <td>{{daily_rate}}</td>
+                <td>{{over_fee}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h1>Total expenses is {{orderlist.payment}}, consist of basecost:{{base}} + overfee:{{overfee}}</h1>
+    <a href="/cars/userplatform">back</a>
+</body>
+</html> {% endcomment %}

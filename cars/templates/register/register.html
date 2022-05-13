@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>welcome</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'bootstrap/css/signin.css' %}" rel="stylesheet">
+ 
+    <link href="{% static 'bootstrap/css/welcome.css' %}" rel="stylesheet">
+</head>
+<body>
+
+    <div class="onepage">
+        <div class="onepage-bg" id="onepagebg">
+            <div class="container">
+                <div class="row">
+                    <div class="title-text">
+                        <div class="col-md-12 headfrontsize">
+                            <h2 class="form-signin-heading" ><center>Please Register</center></h2>
+    <div class="container">
+    <form class="form-signin" action="" method="post">
+        {% csrf_token %}
+        <label for="inputId" class="sr-only">Id</label>
+        <input type="number" name="id" class="form-control" placeholder="id" required autofocus>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="text" name="username" class="form-control" placeholder="username" required>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="password" required>
+        <label for="inputStreet" class="sr-only">Street</label>
+        <input type="text" name="street" class="form-control" placeholder="street" required>
+        <label for="inputCity" class="sr-only">City</label>
+        <input type="text" name="city" class="form-control" placeholder="city" required>
+        <label for="inputState" class="sr-only">State</label>
+        <input type="text" name="state" class="form-control" placeholder="state" required>
+        <label for="inputZip" class="sr-only">Zip</label>
+        <input type="number" name="zip" class="form-control" placeholder="zip" required>
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" name="email" class="form-control" placeholder="email" required>
+        <label for="inputPhone" class="sr-only">Phone</label>
+        <input type="text" name="phone" class="form-control" placeholder="phone" required>
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit">register</button>
+    </form>
+    <a href="/cars/register">not a member? register!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Id:<input type="number" name="id"></p>
+        <p>Username:<input type="text" name="username"></p>
+        <p>Password:<input type="password" name="password"></p>
+        <p>Street:<input type="text" name="street"></p>
+        <p>City:<input type="text" name="city"></p>
+        <p>State:<input type="text" name="state"></p>
+        <p>Zip:<input type="number" name="zip"></p>
+        <p>Email:<input type="email" name="email"></p>
+        <p>Phone:<input type="text" name="phone"></p>
+        <input type="submit" value="register">
+    </form>
+</body>
+</html> {% endcomment %}

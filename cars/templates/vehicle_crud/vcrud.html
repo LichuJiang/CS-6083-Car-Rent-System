@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>crudtest</title>
+</head>
+<body>
+    <h1>vehicle list</h1>
+    <a href="/cars/crud/addvehicle">add vehicle</a>
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>VEHI_LICE</th>
+                <th>VEHI_VIN</th>
+                <th>VEHI_MAKE</th>
+                <th>VEHI_MODEL</th>
+                <th>VEHI_YEAR</th>
+                <th>CLASS_ID</th>
+                <th>OFFI_ID</th>
+                <th>OPERATION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for vehicle in vehicle_list%}
+            <tr>
+                <td>{{vehicle.pk}}</td>
+                <td>{{vehicle.vehi_vin}}</td>
+                <td>{{vehicle.vehi_make}}</td>
+                <td>{{vehicle.vehi_model}}</td>
+                <td>{{vehicle.vehi_year}}</td>
+                <td>{{vehicle.class_field.class_id}}</td>
+                <td>{{vehicle.offi.offi_id}}</td>
+                <td><a href="crud/delvehicle/?id={{vehicle.pk}}">delete</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</body>
+</html>
